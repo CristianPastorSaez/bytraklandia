@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <title>BYTRAKLANDIA: Server Minecraft 1.18.2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://icons.iconarchive.com/icons/blackvariant/button-ui-requests-2/512/Minecraft-1-icon.png">
+    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+    <script src="script.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4505718384532292"
+     crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <video autoplay muted loop id="video-fondo" description="Background video for BYTRAKLANDIA website">
+      <source src="img/3130284-uhd_3840_2160_30fps.mp4" type="video/mp4">
+      <track src="subtitles.vtt" kind="subtitles" srclang="es" label="Español">
+    </video>
+    <div class="overlay"></div>
+    <header>
+      <div class="fixed-header">
+        <div class="titulo">
+          <div class="nav-home">
+            <button onclick="goHome()" aria-label="Go Home">
+              <img src="https://img.icons8.com/m_sharp/512/FFFFFF/home.png" alt="home" class="home">
+            </button>
+            <div class="nav-music">
+              <button id="play-music-btn" class="minecraft-btn" onclick="reproducirMusica()">🎵</button>
+            </div>
+          </div>
+            <audio id="musica1" src="music/C418 - Mice on Venus - Minecraft Volume Alpha [DZ47H84Bc_Q].mp3" loop></audio>
+            <audio id="musica2" src="music/C418 - Sweden - Minecraft Volume Alpha [aBkTkxKDduc].mp3" loop></audio>
+            <audio id="musica3" src="music/videoplayback.mp3" loop></audio>
+          <h1>BYTRAKLANDIA</h1>
+        </div>
+        <div class="nav-menu">
+          <button onclick="goRedes()">Redes</button>
+          <button onclick="location.href='#mods-descargar'">Mods</button>
+          <button onclick="goServer()">Servidor</button>
+          <button onclick="goDescargar()">Descargar</button>
+          <button onclick="abrirPopup()">Contacto</button>
+        </div>
+      </div>
+      <div class="centered-container">
+        <h1>¡Bienvenidos a BYTRAKLANDIA!</h1>
+        <p>Está página web ha sido desarrollado por el mismo desarrollador del servidor, a continuación encontraras información sobre el proyecto</p>
+        <button onclick="minecraft_server()" class="minecraft-btn">UNIRSE</button>
+        <p id="copiado-texto" style="display:none; color:green; margin-top:10px;">¡IP copiada al portapapeles!</p>
+      </div>
+    </header>
+    <main>
+      <div id="mods-descargar" class="mods-container">
+        <h2>MODS A DESCARGAR</h2>
+        <p>Siempre que solo sea la primera vez que te unes:</p>
+        <button onclick="descargarTodos('antiguos')" class="minecraft-btn">Descargar todos</button>
+        <p id="toggle-antiguos" class="toggle-text">Ver más ▼</p>
+        <div id="mods-antiguos-container" class="mods-list-container">
+          <ul id="mods-list-antiguos"></ul>
+        </div>
+      </div>
+      <div id="mods-actualizacion" class="mods-container">
+        <h2>ACTUALIZACIÓN DE MODS</h2>
+        <p>Está es la lista de la última actualización que hemos hecho con los mods en el servidor:</p>
+        <button onclick="descargarTodos('nuevos')" class="minecraft-btn">Descargar todos</button>
+        <p id="no-mods-message" class="no-mods-message">
+          No hay actualización de mods nuevos en los últimos 5 días en el servidor
+        </p>
+        <ul id="mods-list-nuevos"></ul>
+        <h6 class="watermark">--- BYTRAK ---</h6>
+      </div>
+    </main>
+      <div class="centered-container-shaders">
+        <h1>DESCARGAR SHADERS EN TU Minecraft</h1>
+        <p>A continuación te mostrare los mods que debes descargar para poder obtener SHADERS y tener una experiencia más inmersiva en nuestro servidor</p>
+      </div>
+    <main>
+      <div class="shader-container">
+        <h2>OCULUS + RUBIDIUM</h2>
+        <p>Descarga los 2 siguientes mods a traves de los botones</p>
+        <div class="container-shader-btns">
+          <button onclick="Oculus()">Oculus</button>
+          <button onclick="Rubidium()">Rubidium</button>
+        </div>
+      </div>
+      <div class="shader-container">
+        <h2>Como poner en minecraft Oculus + Rubidium</h2>
+        <p>Mira el siguiente tutorial si necesitas ayuda para añadir los shaders en Minecraft Forge 1.18.2</p>
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eJTjxGapGZk?si=3esGCSLT6GCyRfBg" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h6 class="watermark">--- BYTRAK ---</h6>
+      </div>
+    </main>
+    <!-- Popup para el formulario de contacto -->
+    <div id="popup-contacto" class="popup">
+      <div class="popup-content">
+        <h2>Contacto</h2>
+        <p style="font-size: 12px; color: #ccc;">Este formulario es para sugerencias sobre el servidor. No recopilamos información personal sensible.</p>
+        <form id="contact-form" action="https://formsubmit.co/cristianpstr2@gmail.com" method="POST">
+          <label for="nombre">Nombre de jugador:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+
+          <label for="minecraft-oficial">¿Minecraft Oficial?</label>
+          <select id="minecraft-oficial" name="minecraftOficial">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+          </select>
+
+          <label for="comentarios">Comentarios:</label>
+          <textarea id="comentarios" name="comentarios" placeholder="Escribe la sugerencia que creas para el servidor"></textarea>
+
+          <div class="popup-buttons">
+            <button type="submit" class="minecraft-btn">Enviar</button>
+            <button type="button" class="minecraft-btn" onclick="cerrarPopup()">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="mensaje-enviado" class="mensaje-enviado">
+      ¡Formulario enviado con éxito!
+    </div>
+    <footer>
+      <div class="fixed-footer">
+        <div class="info-container">
+          <h2>INFORMACIÓN DEL SERVIDOR</h2>
+          <p>IP: <span id="ip">158.179.214.141</span></p>
+          <p>Versión: 1.18.2</p>
+          <p>Mods: Forge 1.18.2</p>
+        </div>
+        <div class="redes">
+          <a href="https://www.instagram.com/thebytrak/" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="Instagram" class="redes-img">
+          </a>
+          <a href="https://www.twitch.tv/thebytrak" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968819.png" alt="Twitch" class="redes-img">
+          </a>
+          <a href="https://www.youtube.com/@bytrakesp" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="redes-img">
+          </a>
+          <a href="https://www.facebook.com/TheBytrak" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" class="redes-img">
+          </a>
+          <a href="https://www.twitter.com/thebytrak" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" class="redes-img">
+          </a>
+          <a href="https://discord.gg/k8m4w72PSN" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" class="redes-img">
+          </a>
+        </div>
+      </div>
+      <p>Este sitio no está afiliado con Mojang o Minecraft. Es un proyecto independiente para fans.</p>
+    </footer>
+    <script>
+      fetch('https://www.bytraklandia.com/list-mods')
+        .then(response => response.json())
+        .then(data => {
+          const modsListAntiguos = document.getElementById('mods-list-antiguos');
+          const modsListNuevos = document.getElementById('mods-list-nuevos');
+          const descargarTodosBtn = document.querySelector('#mods-actualizacion .minecraft-btn');
+          const noModsMessage = document.getElementById('no-mods-message');
+
+          // Limpiar las listas antes de renderizar
+          modsListAntiguos.innerHTML = '';
+          modsListNuevos.innerHTML = '';
+
+          // Renderizar mods nuevos
+          data.nuevos.forEach(mod => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = `https://www.bytraklandia.com/download-mod/${mod.name}`;
+            link.textContent = mod.name;
+            link.setAttribute('download', mod.name);
+            listItem.appendChild(link);
+            modsListNuevos.appendChild(listItem);
+          });
+
+          // Renderizar mods antiguos
+          data.antiguos.forEach(mod => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = `https://www.bytraklandia.com/download-mod/${mod.name}`;
+            link.textContent = mod.name;
+            link.setAttribute('download', mod.name);
+            listItem.appendChild(link);
+            modsListAntiguos.appendChild(listItem);
+          });
+
+          // Verificar si hay mods nuevos y actualizar visibilidad
+          if (data.nuevos.length === 0) {
+            descargarTodosBtn.style.display = 'none';
+            noModsMessage.style.display = 'block';
+          } else {
+            descargarTodosBtn.style.display = 'inline-block';
+            noModsMessage.style.display = 'none';
+          }
+        })
+        .catch(error => {
+          console.error('Error al obtener la lista de mods:', error);
+        });
+    </script>
+  </body>
+</html>
