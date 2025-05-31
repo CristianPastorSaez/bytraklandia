@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <title>BYTRAKLANDIA: Redes Sociales</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://icons.iconarchive.com/icons/blackvariant/button-ui-requests-2/512/Minecraft-1-icon.png">
+    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+    <script src="script.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4505718384532292"
+     crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <video autoplay muted loop id="video-fondo" description="Background video for BYTRAKLANDIA website">
+      <source src="img/3130284-uhd_3840_2160_30fps.mp4" type="video/mp4">
+      <track src="subtitles.vtt" kind="subtitles" srclang="es" label="Español">
+    </video>
+    <div class="overlay"></div>
+    <header>
+      <div class="fixed-header">
+        <div class="titulo">
+          <div class="nav-home">
+            <button onclick="goHome()" aria-label="Go Home">
+              <img src="https://img.icons8.com/m_sharp/512/FFFFFF/home.png" alt="home" class="home">
+            </button>
+          </div>
+          <h1>BYTRAKLANDIA</h1>
+        </div>
+        <div class="nav-menu">
+          <button onclick="goRedes()">Redes</button>
+          <button onclick="location.href='index.html#mods-descargar'">Mods</button>
+          <button onclick="goServer()">Servidor</button>
+          <button onclick="goDescargar()">Descargar</button>
+          <button onclick="abrirPopup()">Contacto</button>
+        </div>
+      </div>
+      <div class="container">
+        <img src="./img/BYTRAKLANDIA.png" alt="banner" class="imagen-responsive">
+      </div>
+    </header>
+    <main>
+      <div class="redes-container">
+        <h2>REDES SOCIALES</h2>
+        <p>¡Sígueme en mis redes!</p>
+        <ul id="redes-list" class="redes-list">
+          <li>
+            <a href="https://www.instagram.com/thebytrak/" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="redes-img-redes">
+              <span>Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitch.tv/thebytrak" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/5968/5968819.png" alt="Twitch" class="redes-img-redes">
+              <span>Twitch</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@bytrakesp" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="redes-img-redes">
+              <span>YouTube</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/TheBytrak" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" class="redes-img-redes">
+              <span>Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/thebytrak" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" class="redes-img-redes">
+              <span>Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://discord.gg/k8m4w72PSN" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" class="redes-img-redes">
+              <span>Discord</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </main>
+     <!-- Popup para el formulario de contacto -->
+     <div id="popup-contacto" class="popup">
+      <div class="popup-content">
+        <h2>Contacto</h2>
+        <form id="contact-form" action="https://formsubmit.co/cristianpstr2@gmail.com" method="POST">>
+          <label for="nombre">Nombre de jugador:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+        
+          <label for="minecraft-oficial">¿Minecraft Oficial?</label>
+          <select id="minecraft-oficial" name="minecraftOficial">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+          </select>
+        
+          <label for="comentarios">Comentarios:</label>
+          <textarea id="comentarios" name="comentarios" placeholder="Escribe la sugerencia que creas para el servidor"></textarea>
+        
+          <div class="popup-buttons">
+            <button type="submit" class="minecraft-btn">Enviar</button>
+            <button type="button" class="minecraft-btn" onclick="cerrarPopup()">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="mensaje-enviado" class="mensaje-enviado">
+      ¡Formulario enviado con éxito!
+    </div>
+    <footer>
+        <div class="fixed-footer">
+            <div class="info-container">
+              <h2>INFORMACIÓN DEL SERVIDOR</h2>
+              <p>IP: <span id="ip">158.179.214.141</span></p>
+              <p>Versión: 1.18.2</p>
+              <p>Mods: Forge 1.18.2</p>
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>
